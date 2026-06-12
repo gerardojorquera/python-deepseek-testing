@@ -1,0 +1,19 @@
+1.Crear una key:
+https://openrouter.ai/
+
+2.Proyecto instalar openia:
+pip install openai
+
+3.Uso de variables de entorno:
+pip install python-dotenv
+
+archivo .env
+api_key=XXXXX
+
+app:
+from dotenv import load_dotenv
+# 1. Cargar las variables del archivo .env al entorno del sistema
+load_dotenv()
+
+# 2. Recuperar el valor usando os.environ.get
+api_key = os.environ.get("OPENAI_API_KEY")
