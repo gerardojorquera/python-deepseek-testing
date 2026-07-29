@@ -7,11 +7,13 @@ load_dotenv()
 
 # 2. Recuperar el valor usando os.environ.get
 api_key = os.environ.get("API_KEY")
+pregunta = "Nombrame tres personajes del señor de los anillos"
 
 # 3. Comprobar que se cargó correctamente
 if api_key:
-    print("¡Clave cargada con éxito!")
-
+    print("=> Iniciando uso de la IA de DeepSeek... para hacer una pregunta: ", pregunta)
+    print("¡Clave cargada con éxito!: ", api_key[0:4] + "..." + api_key[-4:])  # Muestra solo los primeros y últimos 4 caracteres
+    print("---------------------------------")
     client = OpenAI(
         api_key=api_key,
         base_url="https://openrouter.ai/api/v1",
@@ -22,7 +24,7 @@ if api_key:
         messages=[
             {
                 "role": "user",
-                "content": "Nombrame tres personajes del señor de los anillos",
+                "content": pregunta,
             }
         ],
     )
